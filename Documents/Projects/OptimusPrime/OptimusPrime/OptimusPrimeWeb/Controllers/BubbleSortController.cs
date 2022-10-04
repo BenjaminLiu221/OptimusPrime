@@ -1,35 +1,47 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OptimusPrimeWeb.Models;
+using System.Text.RegularExpressions;
 
 namespace OptimusPrimeWeb.Controllers
 {
     public class BubbleSortController : Controller
     {
         public IActionResult Sort()
-        {
+        { 
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Sort(UserInput userInput)
         {
-            if (!userInput.Characters.Any(char.IsDigit).Equals(true))
-            {
-                TempData["NumberError"] = "Must contain a number(s).";
-                ModelState.AddModelError(string.Empty, TempData["NumberError"].ToString());
-            }
+            Regex rgx = new Regex("[0-9],");
 
-            if (!userInput.Characters.Any(a => !Char.IsLetterOrDigit(a)).Equals(true) || (!userInput.Characters.Any(b => !Char.IsLetter(b))))
+            if (rgx.IsMatch(userInput.Characters).Equals(false))
             {
-                TempData["CharacterError"] = "Must NOT contain letter(s) or special character(s).";
-                ModelState.AddModelError(string.Empty, TempData["CharacterError"].ToString());
+                TempData["Error"] = "Must contain numbers separated by a comma.";
+                ModelState.AddModelError(string.Empty, TempData["Error"].ToString());
             }
 
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            return View(userInput);
+            else
+            {
+                string sortedList = Initiate(userInput.Characters).ToString();
+                SortedResults sortedResults = new SortedResults
+                {
+                    UserInput = userInput,
+                    SortedList = sortedList
+                };
+                return View(sortedResults);
+            }
+        }
+
+        public async Task<string> Initiate(string listOfNum)
+        {
+            string sortedList = "";
+            return sortedList;
         }
     }
 }
