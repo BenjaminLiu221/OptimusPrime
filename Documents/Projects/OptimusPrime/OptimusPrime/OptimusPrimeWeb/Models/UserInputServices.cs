@@ -4,14 +4,21 @@ namespace OptimusPrimeWeb.Models
 {
     public interface IUserInputServices
     {
-        public Task<SortedResults> Sort(UserInput userInput);
+        public Task<SortedResults> BubbleSort(UserInput userInput);
+        public Task<SortedResults> SelectionSort(UserInput userInput);
     }
 
     public class UserInputServices : IUserInputServices
     {
-        public async Task<SortedResults> Sort(UserInput userInput)
+        public async Task<SortedResults> SelectionSort(UserInput userInput)
         {
-            string sortedList = Initiate(userInput.Characters);
+            return new SortedResults();
+        }
+        public async Task<SortedResults> BubbleSort(UserInput userInput)
+        {
+            var intArr = Initiate(userInput.Characters);
+            BubbleSort(intArr);
+            string sortedList = Conclude(intArr);
             SortedResults sortedResults = new SortedResults
             {
                 UserInput = userInput,
@@ -20,12 +27,16 @@ namespace OptimusPrimeWeb.Models
             return sortedResults;
         }
 
-        public static string Initiate(string stringOfNums)
+        public static int[] Initiate(string stringOfNums)
         {
             string cleanedStringOfNums = Regex.Replace(stringOfNums, @"\s+", " ");
             string[] strArr = cleanedStringOfNums.Split(' ');
             int[] intArr = Array.ConvertAll(strArr, a => int.Parse(a));
-            BubbleSort(intArr);
+            return intArr;
+        }
+
+        public static string Conclude(int[] intArr)
+        {
             string sortedNums = string.Join(",", intArr);
             return sortedNums;
         }

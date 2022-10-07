@@ -39,7 +39,7 @@ namespace OptimusPrimeWeb.Controllers
             }
             else
             {
-                var sortedResults = await _userInputServices.Sort(userInput);
+                var sortedResults = await _userInputServices.BubbleSort(userInput);
                 return View(sortedResults);
             }
         }
