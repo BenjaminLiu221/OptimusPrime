@@ -1,4 +1,8 @@
+using OptimusPrimeWeb.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+ConfigureServices(builder.Services);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -25,3 +29,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient<ISortConsumer, SortConsumer>();
+}

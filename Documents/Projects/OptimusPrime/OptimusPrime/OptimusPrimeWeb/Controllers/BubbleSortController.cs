@@ -6,6 +6,13 @@ namespace OptimusPrimeWeb.Controllers
 {
     public class BubbleSortController : Controller
     {
+        private readonly ISortConsumer _sortConsumer;
+
+        public BubbleSortController(ISortConsumer sortConsumer)
+        {
+            _sortConsumer = sortConsumer;
+        }
+
         public IActionResult Sort()
         { 
             return View();
@@ -14,18 +21,15 @@ namespace OptimusPrimeWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Sort(UserInput userInput)
         {
-            Regex numRgx = new Regex("[0-9 ]");
+            var validationObj = _sortConsumer.Validate(userInput.Characters);
 
-            if (numRgx.IsMatch(userInput.Characters).Equals(false))
+            if (validationObj != null)
             {
-                TempData["NumberError"] = "Must contain number(s) separated by a space.";
-                ModelState.AddModelError(string.Empty, TempData["NumberError"].ToString());
-            }
-
-            if (Char.IsWhiteSpace(userInput.Characters, 0).Equals(true))
-            {
-                TempData["LeadingWhiteSpaceError"] = "First value must be a number NOT a space.";
-                ModelState.AddModelError(string.Empty, TempData["LeadingWhiteSpaceError"].ToString());
+                foreach (var validation in validationObj)
+                {
+                    TempData[$"{validation.Key}"] = $"{validation.Value}";
+                    ModelState.AddModelError(string.Empty, TempData[$"{validation.Key}"].ToString());
+                }
             }
 
             if (!ModelState.IsValid)
