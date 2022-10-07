@@ -11,7 +11,7 @@ namespace OptimusPrimeWeb.Models
     {
         public async Task<Dictionary<string,string>> Validate(string characters)
         {
-            Regex numRgx = new Regex("[0-9 ]");
+            Regex numRgx = new Regex("^[0-9 ]*$");
 
             Dictionary<string, string> ValidationObj = new Dictionary<string, string>();
 

@@ -7,31 +7,24 @@
 <form method="post">
     <div class="border p-3 mt-4">
         @{
-            if (@Model == null)
-            {
-                <div class="row pb-2">
-                    <h2 class="text-primary">BubbleSort</h2>
-                    <hr />
-                    <h5>Instructions</h5>
-                    <p>Please enter a list of Numbers.</p>
-                </div>
-                <div class="mb-3">
-                    <label asp-for="@Model.UserInput.Characters">Enter Numbers separated by a space.</label>
-                    <input asp-for="@Model.UserInput.Characters" class="form-control" />
-                    <span asp-validation-for="@Model.UserInput.Characters" class="text-danger"></span>
-                </div>
-                <button type="submit" class="btn btn-warning" style="width:175px">Sort</button>
-            }
+            <div class="row pb-2">
+                <h2 class="text-primary">BubbleSort</h2>
+                <hr />
+                <h5>Instructions</h5>
+                <p>Please enter a list of Numbers.</p>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.UserInput.Characters">Enter Numbers separated by a space.</label>
+                <input asp-for="@Model.UserInput.Characters" class="form-control" />
+                <span asp-validation-for="@Model.UserInput.Characters" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-warning" style="width:175px">Sort</button>
         }
 
         @{
             if (@Model != null)
             {
-                <div class="row pb-2">
-                    <h2 class="text-primary">BubbleSort Results</h2>
-                    <hr />
-                </div>
-
+                <hr />
                 <div class="mb-3">
                     <label asp-for="@Model.SortedList">Sorted List</label>
                     <input asp-for="@Model.SortedList" class="form-control" />
