@@ -4,12 +4,12 @@ namespace OptimusPrimeWeb.Models
 {
     public interface IUserInputValidateConsumer
     {
-        public Dictionary<string, string> Validate(string characters);
+        public Task<Dictionary<string, string>> Validate(string characters);
     }
 
     public class UserInputValidateConsumer : IUserInputValidateConsumer
     {
-        public Dictionary<string,string> Validate(string characters)
+        public async Task<Dictionary<string,string>> Validate(string characters)
         {
             Regex numRgx = new Regex("[0-9 ]");
 
