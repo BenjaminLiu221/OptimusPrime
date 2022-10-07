@@ -3,19 +3,18 @@ using OptimusPrimeWeb.Models;
 
 namespace OptimusPrimeWeb.Controllers
 {
-    public class BubbleSortController : Controller
+    public class SelectionSortController : Controller
     {
         private readonly IUserInputValidateConsumer _userInputValidateConsumer;
         private readonly IUserInputServices _userInputServices;
 
-        public BubbleSortController(IUserInputValidateConsumer userInputValidateConsumer, IUserInputServices userInputServices)
+        public SelectionSortController(IUserInputValidateConsumer userInputValidateConsumer, IUserInputServices userInputServices)
         {
             _userInputValidateConsumer = userInputValidateConsumer;
             _userInputServices = userInputServices;
         }
-
         public IActionResult Sort()
-        { 
+        {
             return View();
         }
 
@@ -39,7 +38,7 @@ namespace OptimusPrimeWeb.Controllers
             }
             else
             {
-                var sortedResults = await _userInputServices.BubbleSort(userInput);
+                var sortedResults = await _userInputServices.SelectionSort(userInput);
                 return View(sortedResults);
             }
         }
