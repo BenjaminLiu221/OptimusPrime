@@ -6,11 +6,11 @@ namespace OptimusPrimeWeb.Controllers
 {
     public class BubbleSortController : Controller
     {
-        private readonly ISortConsumer _sortConsumer;
+        private readonly IUserInputValidateConsumer _userInputValidateConsumer;
 
-        public BubbleSortController(ISortConsumer sortConsumer)
+        public BubbleSortController(IUserInputValidateConsumer userInputValidateConsumer)
         {
-            _sortConsumer = sortConsumer;
+            _userInputValidateConsumer = userInputValidateConsumer;
         }
 
         public IActionResult Sort()
@@ -21,7 +21,7 @@ namespace OptimusPrimeWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Sort(UserInput userInput)
         {
-            var validationObj = _sortConsumer.Validate(userInput.Characters);
+            var validationObj = _userInputValidateConsumer.Validate(userInput.Characters);
 
             if (validationObj != null)
             {

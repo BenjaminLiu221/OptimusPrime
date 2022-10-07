@@ -32,5 +32,5 @@ app.Run();
 
 void ConfigureServices(IServiceCollection services)
 {
-    services.AddTransient<ISortConsumer, SortConsumer>();
+    services.AddTransient<IUserInputValidateConsumer, UserInputValidateConsumer>();
 }

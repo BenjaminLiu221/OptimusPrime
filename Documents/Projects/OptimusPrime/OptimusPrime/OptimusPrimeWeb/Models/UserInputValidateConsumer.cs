@@ -2,12 +2,12 @@
 
 namespace OptimusPrimeWeb.Models
 {
-    public interface ISortConsumer
+    public interface IUserInputValidateConsumer
     {
         public Dictionary<string, string> Validate(string characters);
     }
 
-    public class SortConsumer : ISortConsumer
+    public class UserInputValidateConsumer : IUserInputValidateConsumer
     {
         public Dictionary<string,string> Validate(string characters)
         {
