@@ -24,8 +24,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="BubbleSort" asp-action="Sort">BubbleSort</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sorting Algorithm</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="BubbleSort" asp-action="Sort">BubbleSort</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SelectionSort" asp-action="Sort">SelectionSort</a>
+                            </div>
                         </li>
                     </ul>
                 </div>

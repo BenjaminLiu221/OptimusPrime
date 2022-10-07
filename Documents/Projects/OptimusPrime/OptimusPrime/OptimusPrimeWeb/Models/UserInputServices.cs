@@ -10,14 +10,23 @@ namespace OptimusPrimeWeb.Models
 
     public class UserInputServices : IUserInputServices
     {
-        public async Task<SortedResults> SelectionSort(UserInput userInput)
-        {
-            return new SortedResults();
-        }
         public async Task<SortedResults> BubbleSort(UserInput userInput)
         {
             var intArr = Initiate(userInput.Characters);
             BubbleSort(intArr);
+            string sortedList = Conclude(intArr);
+            SortedResults sortedResults = new SortedResults
+            {
+                UserInput = userInput,
+                SortedList = sortedList
+            };
+            return sortedResults;
+        }
+
+        public async Task<SortedResults> SelectionSort(UserInput userInput)
+        {
+            var intArr = Initiate(userInput.Characters);
+            SelectionSort(intArr);
             string sortedList = Conclude(intArr);
             SortedResults sortedResults = new SortedResults
             {
@@ -52,6 +61,22 @@ namespace OptimusPrimeWeb.Models
                         Swap(array, i, i + 1);
                     }
                 }
+            }
+        }
+
+        public static void SelectionSort(int[] array)
+        {
+            for (int partIndex = array.Length-1; partIndex > 0; partIndex--)
+            {
+                int largestAt = 0;
+                for (int i = 1; i <= partIndex; i++)
+                {
+                    if (array[i] > array[largestAt])
+                    {
+                        largestAt = i;
+                    }
+                }
+                Swap(array, largestAt, partIndex);
             }
         }
 
