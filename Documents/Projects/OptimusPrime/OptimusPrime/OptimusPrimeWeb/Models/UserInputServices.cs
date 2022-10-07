@@ -2,12 +2,12 @@
 
 namespace OptimusPrimeWeb.Models
 {
-    public interface IUserInputServicesConsumer
+    public interface IUserInputServices
     {
         public Task<SortedResults> Sort(UserInput userInput);
     }
 
-    public class UserInputServicesConsumer : IUserInputServicesConsumer
+    public class UserInputServices : IUserInputServices
     {
         public async Task<SortedResults> Sort(UserInput userInput)
         {

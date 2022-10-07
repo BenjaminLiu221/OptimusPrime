@@ -6,12 +6,12 @@ namespace OptimusPrimeWeb.Controllers
     public class BubbleSortController : Controller
     {
         private readonly IUserInputValidateConsumer _userInputValidateConsumer;
-        private readonly IUserInputServicesConsumer _userInputServicesConsumer;
+        private readonly IUserInputServices _userInputServices;
 
-        public BubbleSortController(IUserInputValidateConsumer userInputValidateConsumer, IUserInputServicesConsumer userInputServicesConsumer)
+        public BubbleSortController(IUserInputValidateConsumer userInputValidateConsumer, IUserInputServices userInputServices)
         {
             _userInputValidateConsumer = userInputValidateConsumer;
-            _userInputServicesConsumer = userInputServicesConsumer;
+            _userInputServices = userInputServices;
         }
 
         public IActionResult Sort()
@@ -39,7 +39,7 @@ namespace OptimusPrimeWeb.Controllers
             }
             else
             {
-                var sortedResults = await _userInputServicesConsumer.Sort(userInput);
+                var sortedResults = await _userInputServices.Sort(userInput);
                 return View(sortedResults);
             }
         }
