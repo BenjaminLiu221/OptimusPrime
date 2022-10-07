@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OptimusPrimeWeb.Models;
-using System.Text.RegularExpressions;
 
 namespace OptimusPrimeWeb.Controllers
 {
     public class BubbleSortController : Controller
     {
         private readonly IUserInputValidateConsumer _userInputValidateConsumer;
+        private readonly IUserInputServicesConsumer _userInputServicesConsumer;
 
-        public BubbleSortController(IUserInputValidateConsumer userInputValidateConsumer)
+        public BubbleSortController(IUserInputValidateConsumer userInputValidateConsumer, IUserInputServicesConsumer userInputServicesConsumer)
         {
             _userInputValidateConsumer = userInputValidateConsumer;
+            _userInputServicesConsumer = userInputServicesConsumer;
         }
 
         public IActionResult Sort()
@@ -21,9 +22,9 @@ namespace OptimusPrimeWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Sort(UserInput userInput)
         {
-            var validationObj = _userInputValidateConsumer.Validate(userInput.Characters);
+            var validationObj = await _userInputValidateConsumer.Validate(userInput.Characters);
 
-            if (validationObj != null)
+            if (validationObj.Count > 0)
             {
                 foreach (var validation in validationObj)
                 {
@@ -38,47 +39,10 @@ namespace OptimusPrimeWeb.Controllers
             }
             else
             {
-                string sortedList = Initiate(userInput.Characters);
-                SortedResults sortedResults = new SortedResults
-                {
-                    UserInput = userInput,
-                    SortedList = sortedList
-                };
+                var sortedResults = await _userInputServicesConsumer.Sort(userInput);
                 return View(sortedResults);
             }
         }
 
-        public static string Initiate(string stringOfNums)
-        {
-            string cleanedStringOfNums = Regex.Replace(stringOfNums, @"\s+", " ");
-            string[] strArr = cleanedStringOfNums.Split(' ');
-            int[] intArr = Array.ConvertAll(strArr, a => int.Parse(a));
-            BubbleSort(intArr);
-            string sortedNums = string.Join(",", intArr);
-            return sortedNums;
-        }
-
-        public static void BubbleSort(int[] array)
-        {
-            for (int partIndex = array.Length - 1; partIndex > 0; partIndex--)
-            {
-                for (int i = 0; i < partIndex; i++)
-                {
-                    if (array[i] > array[i + 1])
-                    {
-                        Swap(array, i, i + 1);
-                    }
-                }
-            }
-        }
-
-        private static void Swap(int[] array, int i, int j)
-        {
-            if (i == j)
-                return;
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
     }
 }
