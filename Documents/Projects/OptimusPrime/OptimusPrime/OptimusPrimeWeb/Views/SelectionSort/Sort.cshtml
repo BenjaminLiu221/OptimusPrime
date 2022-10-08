@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3">
                 <label asp-for="@Model.UserInput.Characters">Enter Numbers separated by a space.</label>
-                <input asp-for="@Model.UserInput.Characters" class="form-control" />
+                <textarea asp-for="@Model.UserInput.Characters" rows="10" class="form-control"></textarea>
                 <span asp-validation-for="@Model.UserInput.Characters" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-warning" style="width:175px">Sort</button>
@@ -27,7 +27,7 @@
                 <hr />
                 <div class="mb-3">
                     <label asp-for="@Model.SortedList">Sorted List</label>
-                    <input asp-for="@Model.SortedList" class="form-control" />
+                    <textarea asp-for="@Model.SortedList" rows="10" class="form-control"></textarea>
                     <span asp-validation-for="@Model.SortedList" class="text-danger"></span>
                 </div>
             }
