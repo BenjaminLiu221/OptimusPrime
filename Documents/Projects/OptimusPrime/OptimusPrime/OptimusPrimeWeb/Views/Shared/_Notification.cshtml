@@ -6,3 +6,21 @@
         toastr.error('@TempData["NumberError"]');
     </script>
 }
+
+@if(TempData["LeadingWhiteSpaceError"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.error('@TempData["LeadingWhiteSpaceError"]');
+    </script>
+}
+
+@if(TempData["TrailingWhiteSpaceError"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.error('@TempData["TrailingWhiteSpaceError"]');
+    </script>
+}
