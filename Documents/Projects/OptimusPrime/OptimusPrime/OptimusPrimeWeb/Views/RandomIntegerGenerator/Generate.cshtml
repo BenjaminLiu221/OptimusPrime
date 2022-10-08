@@ -1,0 +1,41 @@
+﻿@model RandomIntegerGeneratorResults
+@{
+    ViewData["Title"] = "Search";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        @{
+            <div class="row pb-2">
+                <h2 class="text-primary">Random Integer Generator</h2>
+                <hr />
+                <h5>Instructions</h5>
+                <p>Please fill out the criteria.</p>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.LengthOfArr">Enter amount of integers to generate.</label>
+                <input asp-for="@Model.LengthOfArr" class="form-control" />
+                <span asp-validation-for="@Model.LengthOfArr" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.MaxInt">Enter max Integer.</label>
+                <input asp-for="@Model.MaxInt" class="form-control" />
+                <span asp-validation-for="@Model.MaxInt" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-warning" style="width:175px">Generate</button>
+        }
+
+        @{
+            if (@Model != null)
+            {
+                <hr />
+                <div class="mb-3">
+                    <label asp-for="@Model.SpaceSeparatedIntegers">Random Generated Integers</label>
+                    <textarea asp-for="@Model.SpaceSeparatedIntegers" rows="4" class="form-control"></textarea>
+                    <span asp-validation-for="@Model.SpaceSeparatedIntegers" class="text-danger"></span>
+                </div>
+            }
+        }
+
+    </div>
+</form>
