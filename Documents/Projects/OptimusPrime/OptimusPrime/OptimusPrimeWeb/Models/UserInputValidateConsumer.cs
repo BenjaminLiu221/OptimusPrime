@@ -25,6 +25,11 @@ namespace OptimusPrimeWeb.Models
                 ValidationObj.Add("LeadingWhiteSpaceError", "First value must be a number NOT a space.");
             }
 
+            if (!Char.IsWhiteSpace(characters, characters.Length - 1).Equals(false))
+            {
+                ValidationObj.Add("TrailingWhiteSpaceError", "Last value must be a number NOT a space.");
+            }
+
             return ValidationObj;
         }
     }

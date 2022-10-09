@@ -34,4 +34,6 @@ void ConfigureServices(IServiceCollection services)
 {
     services.AddTransient<IUserInputValidateConsumer, UserInputValidateConsumer>();
     services.AddTransient<IUserInputServices, UserInputServices>();
+    services.AddTransient<IRandomIntegerGeneratorServices, RandomIntegerGeneratorServices>();
+
 }
