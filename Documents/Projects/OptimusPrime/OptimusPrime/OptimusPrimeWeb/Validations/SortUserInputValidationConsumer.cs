@@ -1,13 +1,13 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace OptimusPrimeWeb.Models
+namespace OptimusPrimeWeb.Validations
 {
     public interface IUserInputValidateConsumer
     {
         public Task<Dictionary<string, string>> Validate(string characters);
     }
 
-    public class UserInputValidateConsumer : IUserInputValidateConsumer
+    public class SortUserInputValidationConsumer : IUserInputValidateConsumer
     {
         public async Task<Dictionary<string,string>> Validate(string characters)
         {

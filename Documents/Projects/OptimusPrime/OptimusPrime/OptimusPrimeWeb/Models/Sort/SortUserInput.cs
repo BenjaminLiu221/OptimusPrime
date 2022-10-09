@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OptimusPrimeWeb.Models
+namespace OptimusPrimeWeb.Models.Sort
 {
-    public class UserInput
+    public class SortUserInput
     {
         [Required]
         public string Characters { get; set; }

@@ -1,8 +1,8 @@
-﻿namespace OptimusPrimeWeb.Models
+﻿namespace OptimusPrimeWeb.Models.Sort
 {
     public class SortedResults
     {
-        public UserInput UserInput { get; set; }
+        public SortUserInput UserInput { get; set; }
         public string SortedList { get; set; }
         public string TimeElapsed { get; set; }
     }

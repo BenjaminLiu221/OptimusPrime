@@ -1,18 +1,19 @@
-﻿using System.Diagnostics;
+﻿using OptimusPrimeWeb.Models.Sort;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace OptimusPrimeWeb.Models
+namespace OptimusPrimeWeb.Services
 {
     public interface IUserInputServices
     {
-        public Task<SortedResults> BubbleSort(UserInput userInput);
-        public Task<SortedResults> SelectionSort(UserInput userInput);
+        public Task<SortedResults> BubbleSort(SortUserInput userInput);
+        public Task<SortedResults> SelectionSort(SortUserInput userInput);
     }
 
-    public class UserInputServices : IUserInputServices
+    public class SortUserInputServices : IUserInputServices
     {
         Stopwatch timer = new Stopwatch();
-        public async Task<SortedResults> BubbleSort(UserInput userInput)
+        public async Task<SortedResults> BubbleSort(SortUserInput userInput)
         {
             var intArr = Initiate(userInput.Characters);
             timer.Start();
@@ -30,7 +31,7 @@ namespace OptimusPrimeWeb.Models
             return sortedResults;
         }
 
-        public async Task<SortedResults> SelectionSort(UserInput userInput)
+        public async Task<SortedResults> SelectionSort(SortUserInput userInput)
         {
             var intArr = Initiate(userInput.Characters);
             timer.Start();

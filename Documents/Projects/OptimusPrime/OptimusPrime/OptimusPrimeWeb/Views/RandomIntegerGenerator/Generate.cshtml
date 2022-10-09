@@ -1,8 +1,7 @@
-﻿@model RandomIntegerGeneratorResults
-@{
-    ViewData["Title"] = "Search";
-}
+﻿@using OptimusPrimeWeb.Models.RandomIntegerGenerator
+@model GeneratedResults
 
+<partial name="_Notification" />
 <form method="post">
     <div class="border p-3 mt-4">
         @{
@@ -13,14 +12,14 @@
                 <p>Please fill out the criteria.</p>
             </div>
             <div class="mb-3">
-                <label asp-for="@Model.LengthOfArr">Enter amount of integers to generate.</label>
-                <input asp-for="@Model.LengthOfArr" class="form-control" />
-                <span asp-validation-for="@Model.LengthOfArr" class="text-danger"></span>
+                <label asp-for="@Model.RandomIntegerGeneratorUserInput.LengthOfArr">Enter amount of integers to generate.</label>
+                <input asp-for="@Model.RandomIntegerGeneratorUserInput.LengthOfArr" class="form-control" />
+                <span asp-validation-for="@Model.RandomIntegerGeneratorUserInput.LengthOfArr" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label asp-for="@Model.MaxInt">Enter max Integer.</label>
-                <input asp-for="@Model.MaxInt" class="form-control" />
-                <span asp-validation-for="@Model.MaxInt" class="text-danger"></span>
+                <label asp-for="@Model.RandomIntegerGeneratorUserInput.MaxInt">Enter max Integer.</label>
+                <input asp-for="@Model.RandomIntegerGeneratorUserInput.MaxInt" class="form-control" />
+                <span asp-validation-for="@Model.RandomIntegerGeneratorUserInput.MaxInt" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-warning" style="width:175px">Generate</button>
         }
