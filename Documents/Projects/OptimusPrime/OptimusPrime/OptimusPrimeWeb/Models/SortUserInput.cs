@@ -2,7 +2,7 @@
 
 namespace OptimusPrimeWeb.Models
 {
-    public class UserInput
+    public class SortUserInput
     {
         [Required]
         public string Characters { get; set; }

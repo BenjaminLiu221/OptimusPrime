@@ -7,7 +7,7 @@ namespace OptimusPrimeWeb.Models
         public Task<Dictionary<string, string>> Validate(string characters);
     }
 
-    public class UserInputValidateConsumer : IUserInputValidateConsumer
+    public class SortUserInputValidateConsumer : IUserInputValidateConsumer
     {
         public async Task<Dictionary<string,string>> Validate(string characters)
         {

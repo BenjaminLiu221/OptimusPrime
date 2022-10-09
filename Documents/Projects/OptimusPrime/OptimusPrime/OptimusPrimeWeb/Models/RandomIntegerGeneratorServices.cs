@@ -2,16 +2,16 @@
 {
     public interface IRandomIntegerGeneratorServices
     {
-        public Task<RandomIntegerGeneratorResults> Initiate(RandomIntegerGeneratorResults randomIntegerGeneratorResults);
+        public Task<GeneratedResults> Initiate(RandomIntegerGeneratorUserInput randomIntegerGeneratorUserInput);
     }
 
     public class RandomIntegerGeneratorServices : IRandomIntegerGeneratorServices
     {
-        public async Task<RandomIntegerGeneratorResults> Initiate(RandomIntegerGeneratorResults randomIntegerGeneratorResults)
+        public async Task<GeneratedResults> Initiate(RandomIntegerGeneratorUserInput randomIntegerGeneratorUserInput)
         {
             Random rnd = new Random();
-            var lengthOfArr = randomIntegerGeneratorResults.LengthOfArr;
-            var maxInt = randomIntegerGeneratorResults.MaxInt;
+            var lengthOfArr = randomIntegerGeneratorUserInput.LengthOfArr;
+            var maxInt = randomIntegerGeneratorUserInput.MaxInt;
             int[] intArr = new int[lengthOfArr];
 
             for (int i = 0; i < intArr.Length; i++)
@@ -21,8 +21,13 @@
             }
             string[] strArr = Array.ConvertAll(intArr, a => a.ToString());
             string str = string.Join(" ", strArr);
-            randomIntegerGeneratorResults.SpaceSeparatedIntegers = str;
-            return randomIntegerGeneratorResults;
+
+            GeneratedResults generatedResults = new GeneratedResults()
+            {
+                RandomIntegerGeneratorUserInput = randomIntegerGeneratorUserInput,
+                SpaceSeparatedIntegers = str
+            };
+            return generatedResults;
         }
     }
 }

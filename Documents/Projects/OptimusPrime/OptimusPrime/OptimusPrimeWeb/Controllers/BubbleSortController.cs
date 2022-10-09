@@ -20,7 +20,7 @@ namespace OptimusPrimeWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Sort(UserInput userInput)
+        public async Task<IActionResult> Sort(SortUserInput userInput)
         {
             var validationObj = await _userInputValidateConsumer.Validate(userInput.Characters);
 

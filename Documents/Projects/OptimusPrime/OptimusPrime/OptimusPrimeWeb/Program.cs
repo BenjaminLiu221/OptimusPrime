@@ -32,8 +32,8 @@ app.Run();
 
 void ConfigureServices(IServiceCollection services)
 {
-    services.AddTransient<IUserInputValidateConsumer, UserInputValidateConsumer>();
-    services.AddTransient<IUserInputServices, UserInputServices>();
+    services.AddTransient<IUserInputValidateConsumer, SortUserInputValidateConsumer>();
+    services.AddTransient<IUserInputServices, SortUserInputServices>();
     services.AddTransient<IRandomIntegerGeneratorServices, RandomIntegerGeneratorServices>();
 
 }

@@ -18,7 +18,7 @@ namespace OptimusPrimeWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Generate(RandomIntegerGeneratorResults randomIntegerGeneratorResults)
+        public async Task<IActionResult> Generate(RandomIntegerGeneratorUserInput randomIntegerGeneratorUserInput)
         {
             if (!ModelState.IsValid)
             {
@@ -26,7 +26,7 @@ namespace OptimusPrimeWeb.Controllers
             }
             else
             {
-                var results = await _randomIntegerGeneratorServices.Initiate(randomIntegerGeneratorResults);
+                var results = await _randomIntegerGeneratorServices.Initiate(randomIntegerGeneratorUserInput);
                 return View(results);
             }
         }
