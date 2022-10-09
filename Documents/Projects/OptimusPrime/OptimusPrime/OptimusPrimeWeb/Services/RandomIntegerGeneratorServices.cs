@@ -1,4 +1,6 @@
-﻿namespace OptimusPrimeWeb.Models
+﻿using OptimusPrimeWeb.Models.RandomIntegerGenerator;
+
+namespace OptimusPrimeWeb.Services
 {
     public interface IRandomIntegerGeneratorServices
     {

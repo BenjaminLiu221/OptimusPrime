@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OptimusPrimeWeb.Models
+namespace OptimusPrimeWeb.Models.Sort
 {
     public class SortUserInput
     {

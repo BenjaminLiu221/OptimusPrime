@@ -1,4 +1,4 @@
-﻿namespace OptimusPrimeWeb.Models
+﻿namespace OptimusPrimeWeb.Models.Sort
 {
     public class SortedResults
     {

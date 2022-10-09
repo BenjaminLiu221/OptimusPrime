@@ -1,4 +1,6 @@
-using OptimusPrimeWeb.Models;
+
+using OptimusPrimeWeb.Services;
+using OptimusPrimeWeb.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +34,7 @@ app.Run();
 
 void ConfigureServices(IServiceCollection services)
 {
-    services.AddTransient<IUserInputValidateConsumer, SortUserInputValidateConsumer>();
+    services.AddTransient<IUserInputValidateConsumer, SortUserInputValidationConsumer>();
     services.AddTransient<IUserInputServices, SortUserInputServices>();
     services.AddTransient<IRandomIntegerGeneratorServices, RandomIntegerGeneratorServices>();
 

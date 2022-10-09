@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OptimusPrimeWeb.Models;
+using OptimusPrimeWeb.Models.RandomIntegerGenerator;
+using OptimusPrimeWeb.Services;
 
 namespace OptimusPrimeWeb.Controllers
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
-namespace OptimusPrimeWeb.Models
+namespace OptimusPrimeWeb.Models.RandomIntegerGenerator
 {
     public class GeneratedResults
     {

@@ -1,7 +1,8 @@
-﻿using System.Diagnostics;
+﻿using OptimusPrimeWeb.Models.Sort;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace OptimusPrimeWeb.Models
+namespace OptimusPrimeWeb.Services
 {
     public interface IUserInputServices
     {
