@@ -27,6 +27,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/InsertionSort/Sort.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zZXJ0aW9uU29ydFxTb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/MergeSort/Sort.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVyZ2VTb3J0XFNvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/QuickSort/Sort.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVpY2tTb3J0XFNvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/RandomIntegerGenerator/Generate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9tSW50ZWdlckdlbmVyYXRvclxHZW5lcmF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -45,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/ShellSort/Sort.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hlbGxTb3J0XFNvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/benja/Documents/Projects/OptimusPrime/OptimusPrime/OptimusPrimeWeb/Views/_ViewImports.cshtml]
