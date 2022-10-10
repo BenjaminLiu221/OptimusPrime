@@ -11,6 +11,7 @@ namespace OptimusPrimeWeb.Services
         public Task<SortedResults> InsertionSort(SortUserInput userInput);
         public Task<SortedResults> ShellSort(SortUserInput userInput);
         public Task<SortedResults> MergeSort(SortUserInput userInput);
+        public Task<SortedResults> QuickSort(SortUserInput userInput);
     }
 
     public class SortUserInputServices : IUserInputServices
@@ -93,6 +94,24 @@ namespace OptimusPrimeWeb.Services
             var intArr = Initiate(userInput.Characters);
             timer.Start();
             MergeSort(intArr);
+            timer.Stop();
+            TimeSpan timeTaken = timer.Elapsed;
+            string timeElapsed = $"Time Elapsed: {timeTaken.ToString()}";
+            string sortedList = Conclude(intArr);
+            SortedResults sortedResults = new SortedResults
+            {
+                UserInput = userInput,
+                SortedList = sortedList,
+                TimeElapsed = timeElapsed
+            };
+            return sortedResults;
+        }
+
+        public async Task<SortedResults> QuickSort(SortUserInput userInput)
+        {
+            var intArr = Initiate(userInput.Characters);
+            timer.Start();
+            QuickSort(intArr);
             timer.Stop();
             TimeSpan timeTaken = timer.Elapsed;
             string timeElapsed = $"Time Elapsed: {timeTaken.ToString()}";
@@ -220,6 +239,49 @@ namespace OptimusPrimeWeb.Services
                     else
                         array[k] = aux[i++];
                 }
+            }
+        }
+
+        public static void QuickSort(int[] array)
+        {
+            Sort(0, array.Length - 1);
+
+            void Sort(int low, int high)
+            {
+                if (high <= low)
+                    return;
+                int j = Partition(low, high);
+                Sort(low, j - 1);
+                Sort(j + 1, high);
+            }
+
+            int Partition(int low, int high)
+            {
+                int i = low;
+                int j = high + 1;
+
+                int pivot = array[low];
+                while (true)
+                {
+                    while (array[++i] < pivot)
+                    {
+                        if (i == high)
+                            break;
+                    }
+
+                    while (pivot < array[--j])
+                    {
+                        if (j == low)
+                            break;
+                    }
+
+                    if (i >= j)
+                        break;
+
+                    Swap(array, i, j);
+                }
+                Swap(array, low, j);
+                return j;
             }
         }
 
