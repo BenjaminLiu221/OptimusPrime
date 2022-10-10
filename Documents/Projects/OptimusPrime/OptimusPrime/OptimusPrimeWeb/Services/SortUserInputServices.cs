@@ -8,6 +8,7 @@ namespace OptimusPrimeWeb.Services
     {
         public Task<SortedResults> BubbleSort(SortUserInput userInput);
         public Task<SortedResults> SelectionSort(SortUserInput userInput);
+        public Task<SortedResults> InsertionSort(SortUserInput userInput);
     }
 
     public class SortUserInputServices : IUserInputServices
@@ -36,6 +37,24 @@ namespace OptimusPrimeWeb.Services
             var intArr = Initiate(userInput.Characters);
             timer.Start();
             SelectionSort(intArr);
+            timer.Stop();
+            TimeSpan timeTaken = timer.Elapsed;
+            string timeElapsed = $"Time Elapsed: {timeTaken.ToString()}";
+            string sortedList = Conclude(intArr);
+            SortedResults sortedResults = new SortedResults
+            {
+                UserInput = userInput,
+                SortedList = sortedList,
+                TimeElapsed = timeElapsed
+            };
+            return sortedResults;
+        }
+
+        public async Task<SortedResults> InsertionSort(SortUserInput userInput)
+        {
+            var intArr = Initiate(userInput.Characters);
+            timer.Start();
+            InsertionSort(intArr);
             timer.Stop();
             TimeSpan timeTaken = timer.Elapsed;
             string timeElapsed = $"Time Elapsed: {timeTaken.ToString()}";
@@ -90,6 +109,21 @@ namespace OptimusPrimeWeb.Services
                     }
                 }
                 Swap(array, largestAt, partIndex);
+            }
+        }
+
+        public static void InsertionSort(int[] array)
+        {
+            for (int partIndex = 1; partIndex < array.Length; partIndex++)
+            {
+                int curUnsorted = array[partIndex];
+                int i = 0;
+                for (i = partIndex; i > 0 && array[i - 1] > curUnsorted; i--)
+                {
+                    array[i] = array[i - 1];
+                }
+
+                array[i] = curUnsorted;
             }
         }
 
