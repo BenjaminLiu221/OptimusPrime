@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf7fM5gC+Pkut32aJvfpCUQAAAAACAAAAAAAQZgAAAAEAACAAAADt9RsJtaCKv9lynKujPzUq42hsy3TYfr3BYrzhCtomvgAAAAAOgAAAAAIAACAAAABlwt2hBe8MtF6eytr1DOGPfE4zgkEKhfNkQOsR9ZPxtoAAAAAqFRTFGIsMgHe0olJFFveS9KPQhro2qWPah9YxOxF5kH8yQ7hPBpRCE6axMFe7GJKm2yhfbeY2TSgeoB1L/RE2ik0w0oeMA5VWmnCvJviIWQfx9Cj8MgqzExmaovjdlJMLEg6ehMuu19zXNf01D6P8Ge8zh9fSevb863OW2bY8oEAAAADE9GYNRug41c3kFIX0Fb3uCr5jFQKsGj84ilq8M+Jbg8ZqGtHY7UIhx7n8TQkhdTH6gGPE177WikZ/d//Idee2</EncryptedPassword>
+    <History>True|2022-10-13T05:35:36.2749103Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:optimusprimeco.database.windows.net,1433%3bInitial Catalog=optimusprime_db%3bPersist Security Info=False%3bUser ID=admin-sql%3bPassword=www.twitch.tv2%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
